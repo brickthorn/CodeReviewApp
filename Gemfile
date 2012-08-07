@@ -26,7 +26,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'capybara'
-  gem 'shoulda'
+  gem 'shoulda', :require => false
   gem 'guard'
   gem 'guard-rspec'
   gem 'spork-rails'
