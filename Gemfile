@@ -27,6 +27,10 @@ group :development, :test do
   gem 'simplecov'
   gem 'capybara'
   gem 'shoulda'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'spork-rails'
+  gem 'guard-spork'
 end
 
 

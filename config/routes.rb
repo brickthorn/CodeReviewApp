@@ -1,4 +1,9 @@
 CodeReviewApp::Application.routes.draw do
+
+  root :to => "code_submissions#index"
+  
+  resources :code_submissions, :reviews, :comments
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
