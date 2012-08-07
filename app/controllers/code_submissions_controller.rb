@@ -1,5 +1,7 @@
 class CodeSubmissionsController < ApplicationController
+
   def index
+    @code_submissions = CodeSubmission.all
   end
 
   def new

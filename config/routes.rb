@@ -1,14 +1,11 @@
 CodeReviewApp::Application.routes.draw do
-<<<<<<< HEAD
 
   root :to => "code_submissions#index"
   
   resources :code_submissions, :reviews, :comments
 
-=======
   devise_for :users
 
->>>>>>> master
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
