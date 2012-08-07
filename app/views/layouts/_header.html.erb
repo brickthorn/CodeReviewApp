@@ -12,11 +12,11 @@
             <a href="#"
                   class="dropdown-toggle"
                   data-toggle="dropdown">
-                  <%= @user.name %>
+                  <%= current_user.name %>
                   <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-                <li><%= link_to 'Profile', root_path %></li><hr>
+                <li><%= link_to 'Profile', user_path(current_user) %></li><hr>
                 <li><%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %></li>
                 
             </ul>

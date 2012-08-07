@@ -4,6 +4,7 @@ class CodeSubmission < ActiveRecord::Base
   validates_presence_of :url
   
   has_many :reviews
+  belongs_to :user
   
   # accepts_nested_attributes_for :reviews
 end

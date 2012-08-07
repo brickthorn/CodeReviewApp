@@ -12,4 +12,8 @@ class CodeSubmissionsController < ApplicationController
 
   def destroy
   end
+
+  def show
+  	raise
+  end
 end

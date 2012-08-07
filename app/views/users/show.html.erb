@@ -1,3 +1,13 @@
 <% if signed_in? %>
     <h1><%= @user.email %></h1>
+    <div><%= image_tag avatar_url(@user) %></div>
+    	<table width="100%" border='1'>
+    		<% @user.code_submissions.each do |code| %>
+    			<tr>
+    				<td><%= link_to code.url, code_submission_path(code) %></td>
+    				<td>UPDATES ON CODE</td>
+    			</tr>
+    		<% end %>
+        </table>
+
 <% end %>
