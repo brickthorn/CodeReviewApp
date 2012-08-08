@@ -1,2 +1,18 @@
+<h1><%= @code_submission.url %></h1>
+	<div id="gist"></div>
+	<!-- <textarea rows="50" class="span8"></textarea> -->
+<script>
 
-<%= @code_submission.url %>
+	var userGist = new Gh3.Gist({id: "<%=j @code_submission.url.split("/").last %>" });
+
+	userGist.fetchContents(function (err, res) {
+
+		if(err) { throw "outch ..." }
+
+		console.log("userGist : ", userGist);
+		console.log("Files : ", userGist.files);
+		$("#gist").text(userGist.files[0].content);
+
+	});
+		
+</script>
