@@ -1,0 +1,30 @@
+<%= form_for @code_submission do |f| %>
+<% if @code_submission.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@code_submission.errors.count, "error") %> prohibited this poll from being saved:</h2>
+
+    <ul>
+    <% @code_submission.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>Submit your code for review</h1><br />
+    <div class="row">
+      <div class="span4 offset1">
+        <p><%= f.label "Enter Code Url" %>
+        <%= f.text_field :url %></p>
+      </div>
+      <div class="span5">
+        <p><%= f.label "Code Description" %>
+        <%= f.text_area :description, :placeholder => "Enter description...", :rows => "1" %></p>
+      </div>
+
+    </div>
+    <div class="offset4">
+      <%= f.submit "Submit", class: "btn btn-success btn-large" %>
+    </div>
+<% end %>
