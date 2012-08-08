@@ -39,7 +39,6 @@ describe "code submission pages" do
         page.should have_content("http://www.github.com/test/")
       end
     
-    
     end
     
   end
