@@ -23,6 +23,11 @@ class CodeSubmissionsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @review = Review.new(:code_submission_id => params[:id])
+    @reviews = Review.find_all_by_code_submission_id(params[:id])
+    # raise Review.all.inspect
+    @comments = Comment.find_all_by_review_id(params[:id])
   	@code_submission = CodeSubmission.find(params[:id])
   end
 end

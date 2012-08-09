@@ -17,3 +17,27 @@
 	});
 		
 </script>
+
+<% @reviews.each do |review| %>
+  <%= review.body %>
+    <% review.comments.each do |comment| %>
+    <%= comment.body %>
+    <% end %>
+    <%= form_for @comment do |f| %>
+    <%= f.label "Submit Comment:" %>
+    <%= f.text_area :body, :size => "100" %><br />
+    <%= f.hidden_field :review_id, :value => review.id %>
+    <%= f.submit "Submit" %>
+  <% end %>
+
+<% end %>
+
+<%= form_for @review do |f| %>
+<%= f.label "Submit Review:" %>
+<%= f.text_area :body, :size => "100" %><br />
+<%= f.hidden_field :code_submission_id %>
+<%= f.submit "Submit" %>
+<% end %>
+
+
+
