@@ -1,9 +1,15 @@
-<%= link_to "Submit Your Code", new_code_submission_path %>
-<ul>
-<% @code_submissions.each do |submission| %>
-  <%= submission.user_id %><br>
-  <%= submission.url %>
-  <%= submission.description %>
-<% end %>
-</ul>
-  
+<div class="hero-unit">
+  <%= render "code_submissions/code_sub_form" %>
+</div>
+
+<table class="span12" border="1">
+
+  <% @code_submissions.each do |submission| %>
+    <tr>
+      <td><%= link_to submission.description, code_submission_path(submission) %><br /></td>
+      <td><%= submission.user.name %></td>
+      <td><%= submission.created_at.strftime("%b %e, %Y") %></td>
+      <td><%= "#{pluralize(submission.reviews.count, 'review')}" %></td>
+    </tr>
+  <% end %>
+</table>

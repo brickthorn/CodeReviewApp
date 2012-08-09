@@ -1,19 +1,21 @@
-<h1><%= @code_submission.url %></h1>
-	<!-- <div id="gist"></div> -->
-	<pre id="gist" style="word_wrap; break-word; white-space; pre-wrap;"></pre>
-	<!-- <textarea rows="50" class="span8"></textarea> -->
+<h1><%= @code_submission.description %></h1>
+  <!-- <div id="gist"></div> -->
+  <pre id="gist" style="word_wrap; break-word; white-space; pre-wrap;"></pre>
+  <!-- <textarea rows="50" class="span8"></textarea> -->
 <script>
 
-	var userGist = new Gh3.Gist({id: "<%=j @code_submission.url.split("/").last %>" });
+  var userGist = new Gh3.Gist({id: "<%=j @code_submission.url.split("/").last %>" });
 
-	userGist.fetchContents(function (err, res) {
+  userGist.fetchContents(function (err, res) {
 
-		if(err) { throw "outch ..." }
+    if(err) { throw "outch ..." }
 
-		console.log("userGist : ", userGist);
-		console.log("Files : ", userGist.files);
-		$("#gist").text(userGist.files[0].content);
+    console.log("userGist : ", userGist);
+    console.log("Files : ", userGist.files);
+    $("#gist").text(userGist.files[0].content);
 
-	});
-		
+  });
+
+  SyntaxHighlighter.all()
+
 </script>
