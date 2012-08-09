@@ -1,0 +1,500 @@
+   37  mate .
+   38  git rebase -i aa27dbbbfb95b6a6890f926c90b16ba3bf97c810
+   39  git reset Cannot rebase: You have unstaged changes.
+   40  Please commit or stash them.
+   41  git reset aa27dbbbfb95b6a6890f926c90b16ba3bf97c810
+   42  git commit -am 'Commit things that suck'
+   43  git reset aa27dbbbfb95b6a6890f926c90b16ba3bf97c810
+   44  mate .
+   45  cd URL_shortener/
+   46  git reset --hard aa27dbbbfb95b6a6890f926c90b16ba3bf97c810
+   47  git hist
+   48  cd URL_Shortener/
+   49  git hist
+   50  git reset --hard aa27dbb 2012-07-22
+   51  git log
+   52  git reest --hard aa27dbbbfb95b6a6890f926c90b16ba3bf97c810
+   53  git reset --hard aa27dbbbfb95b6a6890f926c90b16ba3bf97c810
+   54  mate .
+   55  rails generate controller SecretController
+   56  gem install rails
+   57  bundle
+   58  rails generate controller SecretController
+   59  rake routes
+   60  rails s
+   61  rails s
+   62  rails s
+   63  rails s
+   64  cd sropbox
+   65  cd dropbox
+   66  cd jackie
+   67  cd cluelesscloset
+   68  mate .
+   69  cd ~
+   70  ls 
+   71  cd URL_shortener/
+   72  cd URL_Shortener/
+   73  rvm use 1.9.3
+   74  mate .
+   75  cd dropbox
+   76  cd jackie
+   77  cd cluelesscloset
+   78  mate .
+   79  git remote add github git@github.com:jherrlin/cluelesscloset.git
+   80  git commit -m "trying to commit clueless closet"
+   81  git commit -am "trying to commit clueless closet"
+   82  git remote add origin git@github.com:jherrlin.git
+   83  cd ..
+   84  ls
+   85  mate .
+   86  mate .
+   87  rails c
+   88  exit
+   89  ls
+   90  ls
+   91  cd ..
+   92  ls
+   93  ls
+   94  cd ..
+   95  ls
+   96  cd ..
+   97  ls
+   98  cd
+   99  cd Desktop/
+  100  ls
+  101  cd Jackie_Brick/
+  102  ls
+  103  pwd
+  104  cd ..
+  105  ls
+  106  git clone https://github.com/brickthorn/url_shortener.git
+  107  ls
+  108  cd url_shortener/
+  109  ls
+  110  rails s
+  111  ls
+  112  cd ..
+  113  ls
+  114  cd Jackie_Brick/
+  115  ls
+  116  rails s
+  117  rails s
+  118  rails s
+  119  rails s
+  120  rails s
+  121  rails s
+  122  ls
+  123  cd ..
+  124  ls
+  125  cd Jackie_Brick/
+  126  ls
+  127  ls
+  128  git status
+  129  rails g model Article title:string url:string
+  130  rake db:migrate
+  131  ls
+  132  rails g controller articles index create show new
+  133  ls
+  134  mate .
+  135  rake routes
+  136  ls
+  137  git add .
+  138  git commit -m "added models controller"
+  139  ls
+  140  ls
+  141  ls
+  142  cd db
+  143  ls
+  144  cd migrate/
+  145  ls
+  146  cd ..
+  147  ls
+  148  rake routes
+  149  whois www.hello.com
+  150  whois www.brick.com
+  151  rails c
+  152  ls
+  153  cd ..
+  154  c d..
+  155  cd ..
+  156  ls
+  157  rails new testing_this
+  158  cd testing_this/
+  159  ls
+  160  rails generate scaffold Article name:string description:string
+  161  rake db:migrate
+  162  mate .
+  163  rails server -p 3001
+  164  ls
+  165  ls
+  166  cd ..
+  167  ls
+  168  cd Jackie_Brick/
+  169  ls
+  170  git add .
+  171  git commit -m "title added and simple validations"
+  172  git status
+  173  git rm public/index.html
+  174  git add .
+  175  git commit -m "validations and form"
+  176  ls
+  177  ls
+  178  ls
+  179  pwd
+  180  rails g model User name:string email:string password:string
+  181  rails g controller users index, new, create, edit, update, destroy
+  182  ls
+  183  rake db:migrate
+  184  rake db:migrate --trace
+  185  rails g controller users index new create edit update destroy
+  186  rake db:migrate
+  187  rake routes
+  188  ls
+  189  cd app/controllers/
+  190  ls
+  191  mate users_controller.rb 
+  192  ls
+  193  cd ..
+  194  ls
+  195  mate 
+  196  mate .
+  197  pwd
+  198  cd ..
+  199  ls
+  200  mate .
+  201  rails g controller user_sessions new create destroy
+  202  rake db:migrate
+  203  rake routes
+  204  rake routes
+  205  rake routes
+  206  rake routes
+  207  rake routes
+  208  ls
+  209  git add .
+  210  git commit -m "user account set up and login, sans logout"
+  211  ls
+  212  git branch
+  213  git branch devise
+  214  git branch
+  215  git checkout devise
+  216  git merge master
+  217  mate .
+  218  rails generate devise:install
+  219  git checkout master
+  220  mate .
+  221  ls
+  222  rails db
+  223  rails console
+  224  ls
+  225  cd ..
+  226  lks
+  227  ls
+  228  cd Jackie_Brick/
+  229  rails console
+  230  ls
+  231  rails console
+  232  cd Dropbox/
+  233  cd andrew/
+  234  cd week6/
+  235  mate router_tester/
+  236  ls
+  237  cd ..
+  238  ls
+  239  cd 
+  240  ls
+  241  cd Desktop/
+  242  ls
+  243  cd Jackie_Brick/
+  244  ls
+  245  git add .
+  246  git commit -m "last one here"
+  247  ls
+  248  git push
+  249  irb
+  250  cd .rvm/gems/ruby-1.9.3-p194@hn_clone
+  251  ls
+  252  cd gems/
+  253  cd activerecord-3.2.6/
+  254  mate .
+  255  irb
+  256  ls
+  257  mate .
+  258  rails db
+  259  git add .
+  260  git add .
+  261  git commit -m 'stuff'
+  262  rails c
+  263  rake routes
+  264  rake routes
+  265  rake routes
+  266  rake routes
+  267  rake routes
+  268  rake routes
+  269  rake routes
+  270  rake routes
+  271  rake routes
+  272  git rm app/views/users/index.html.haml
+  273  git rm -f app/views/users/index.html.haml
+  274  git rm -f app/views/users/update.html.haml
+  275  git rm -f app/views/users/create.html.haml
+  276  rake routes
+  277  git add .
+  278  git commit -m "lots of routing"
+  279  rake routes
+  280  a - Time.now
+  281  a = Time.now
+  282  irb
+  283  git add .
+  284  git commit -m "mid interation"
+  285  git push origin iteration4
+  286  rails c
+  287  git add .
+  288  git commit -m "iteration 3"
+  289  git push origin master
+  290  git push origin new
+  291  git checkout master
+  292  git branch
+  293  git branch -D new
+  294  git fetch master
+  295  git fetch origin master
+  296  mate .
+  297  git pull origin master
+  298  git push origin :new
+  299  git push origin :devise-omniauth
+  300  git status
+  301  git add .
+  302  mate .
+  303  git pull
+  304  git status
+  305  git branch "iteration4"
+  306  git checkout iteration4 
+  307  mate .
+  308  rake db:migrate
+  309  rails g migration add_user_id_to_links user_id:integer
+  310  rake db:migrate
+  311  rake db:reset
+  312  rails c
+  313  cd Desktop/
+  314  cd ..
+  315  cd Dropbox/
+  316  cd Noah\ Shafi/
+  317  git clone https://github.com/DomKM/hn_clone.git
+  318  git branch
+  319  cd hn_clone/
+  320  bundle
+  321  gem install bundler
+  322  bundle
+  323  gem install bundler
+  324  bundle
+  325  bracnh
+  326  branch
+  327  bundle
+  328  branch
+  329  ls
+  330  cd ..
+  331  cd hn_clone/
+  332  bundle
+  333  rvm gemset create hn_clone
+  334  cd ..
+  335  cd hn_clone/
+  336  ls
+  337  bundle
+  338  git branch new
+  339  git checkout new
+  340  git branch
+  341  git pull origin devise-omniauth
+  342  mate .
+  343  git pull origin devise-omniauth
+  344  git merge
+  345  git add .
+  346  git commit -m 'fixes conflicts'
+  347  rails s
+  348  bundle
+  349  rails s
+  350  rake db:migrate
+  351  rails s
+  352  rails s
+  353  rails s
+  354  rails s
+  355  rails s
+  356  ls
+  357  git rm public/index.html
+  358  git add .
+  359  git commit -m'removes index'
+  360  git pull origin master
+  361  git push
+  362  bundle
+  363  ~/.ssh/
+  364  cd Desktop/
+  365  cd DBC_Party_Rails/
+  366  git pull origin master
+  367  git add .
+  368  git commit -m "more struff"
+  369  git pull origin master
+  370  git status
+  371  open .
+  372  mate .
+  373  git status
+  374  git commit -m'merges'
+  375  git add .
+  376  git commit -m'merges'
+  377  git status
+  378  git pull
+  379  git pull origin master
+  380  git push origin master
+  381  git branch
+  382  git status
+  383  git diff --color master
+  384  git add .
+  385  git commit -m'merges?'
+  386  git diff
+  387  git checkout master
+  388  gs
+  389  git diff
+  390  git branch
+  391  git pull origin master
+  392  git status
+  393  cd ..f
+  394  ls
+  395  cd ..
+  396  ls
+  397  rm -rf DBC_Party_Rails/
+  398  git clone https://github.com/noshaf/DBC_Party_Rails.git
+  399  cd DBC_Party_Rails/
+  400  ls
+  401  git status
+  402  open .
+  403  mate .
+  404  rails s
+  405  rake db:migrate
+  406  bundle
+  407  rake db:migrate
+  408  rake db:reset
+  409  rails s
+  410  rails s
+  411  rails s
+  412  bundle
+  413  rails s
+  414  rvm gemset use global
+  415  gem install heroku
+  416  git add .
+  417  git commit -m "added playlist rather than individual songs"
+  418  git push
+  419  cd ~/.ssh/
+  420  cd..
+  421  cd..
+  422  cd ~
+  423  heroku list
+  424  heroku list
+  425  heroku keys:add
+  426  pwd
+  427  cd 
+  428  ls
+  429  cd Dropbox/
+  430  ls
+  431  cd Noah\ Shafi/
+  432  ls
+  433  cd hn_clone/
+  434  ls
+  435  mate .
+  436  git fetch origin iteration4
+  437  rails s
+  438  rails s
+  439  git add .
+  440  git commit .
+  441  git status
+  442  git push origin iteration4
+  443  git checkout master
+  444  git pull
+  445  git pull origin iteration 4
+  446  git pull origin iteration4
+  447  git status
+  448  git pull
+  449  git pull origin iteration4
+  450  git status
+  451  mate .
+  452  git status
+  453  git push
+  454  git status
+  455  git pull origin iteration4
+  456  git statius
+  457  y
+  458  yes
+  459  ls
+  460  cd Dropbox/Noah\ Shafi/
+  461  cd hn_clone/
+  462  git pull origin iteration4
+  463  git status
+  464  mate .
+  465  git branch -D iteration4
+  466  git branch
+  467  git branch iteration5
+  468  git checkout iteration5
+  469  mate .
+  470  bundle install
+  471  bundle install
+  472  bundle exec rails g reputation_system
+  473  bundle exec rake db:migrate
+  474   mate .
+  475  git add .
+  476  git commit -m "did almost nothing"
+  477  git push origin iteration5
+  478  mate .
+  479  rails s
+  480  rails s
+  481  rake db:reset
+  482  rails c
+  483  git branch
+  484  git add .
+  485  git status
+  486  git commit -m "some ajax"
+  487  git push
+  488  rails s
+  489  rails s
+  490  rails s
+  491  cd ..
+  492  ls
+  493  git clone https://github.com/viceversus/hn_clone.git
+  494  cd hn_clone/
+  495  bundle
+  496  mate .
+  497  rails s
+  498  rake db:migrate
+  499  rails s
+  500  mate .
+  501  ls
+  502  cd Desktop/
+  503  ls
+  504  cd CodeReviewApp/
+  505  ls
+  506  rails s
+  507  ls
+  508  vi Gemfile
+  509  bundle
+  510  ls
+  511  ls -a
+  512  vi .rvmrc 
+  513  ls
+  514  bundle
+  515  bundle
+  516  bundle install
+  517  git status
+  518  rake routes
+  519  rails s
+  520  gem install rails 
+  521  rails s
+  522  rake routes
+  523  rails s
+  524  rake routes
+  525  rails s
+  526  rails s
+  527  rails s
+  528  rails s
+  529  rails s
+  530  rails s
+  531  rails s
+  532  ls
+  533  rails s
+  534  history
+  535  rake routes db:
+  536  history > test.txwt
