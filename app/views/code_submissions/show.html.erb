@@ -23,12 +23,13 @@
 
 <%= render "review_form" %>
 
-<div id="review">
+<div class="review">
 </div>
 
+
 <% @reviews.each do |review| %>
-  <div id="review"><p><%= review.body %></p>
-    <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true %>
+  <div class="review"><h4><%= review.body %></h4>
+    <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
     <div id="comment_form-<%= review.id %>"> </div>
     <div id="comments-<%= review.id %>">
     <% review.comments.each do |comment| %>
