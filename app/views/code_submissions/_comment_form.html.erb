@@ -1,0 +1,6 @@
+<%= form_for @comment, :remote => true do |f| %>
+<%= f.label "Submit Comment:" %>
+<%= f.text_area :body, :size => "100", :class => "comment-#{review}" %><br />
+<%= f.hidden_field :review_id, :value => review %>
+<%= f.submit "Submit" %>
+<% end %>

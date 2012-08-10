@@ -1,0 +1,6 @@
+<%= form_for @review, :remote => true do |f| %>
+<%= f.label "Submit Review:" %>
+<%= f.text_area :body, :size => "100" %><br />
+<%= f.hidden_field :code_submission_id %>
+<%= f.submit "Submit" %>
+<% end %>
