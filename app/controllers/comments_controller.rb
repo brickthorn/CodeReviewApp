@@ -2,13 +2,18 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!
   def new
     @comment = Comment.new
+    respond_to do |format|
+      format.js 
+    end
   end
 
   def create
     @comment = current_user.comments.new(params[:comment])
     if @comment.save
-      flash[:success] = "Thanks for your comment"
-      redirect_to :back
+      respond_to do |format|
+        format.html { redirect_to :back;  flash[:success] = "Thanks for your comment" }
+        format.js
+      end
     else
       flash[:error] = "Something went wrong"
     end

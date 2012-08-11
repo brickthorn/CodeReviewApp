@@ -1,0 +1,23 @@
+<%= form_for @comment, :remote => true do |f| %>
+<%= f.label "Submit Comment:" %>
+<%= f.text_area :body, :size => "100", :class => "comment-#{review}" %><br />
+<%= f.hidden_field :review_id, :value => review %>
+<%= f.submit "Submit" %>
+
+<p class="cancel-button">Cancel</p>
+<% end %>
+
+<script>
+$(document).ready(function(){
+  $('.cancel-button').on("click", "div", function(evt){
+      console.log($(this).text())
+    $('.new-comment').html(
+      "Submit a comment"
+      );
+
+    $("#comment_form-").html(
+      ""
+      );
+  });
+});
+</script>

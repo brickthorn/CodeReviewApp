@@ -7,8 +7,11 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.new(params[:review])
     if @review.save
-      flash[:success] = "Thanks for your review"
-      redirect_to code_submission_path(@review.code_submission_id)
+      respond_to do |format|
+        format.html { redirect_to code_submission_path(@review.code_submission_id); 
+                      flash[:success] = "Thanks for your review"  }
+        format.js
+      end
     else
       flash[:error] = "Something went wrong"
     end

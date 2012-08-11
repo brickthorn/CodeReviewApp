@@ -92,26 +92,25 @@
   </script>
 <% end %>
 
+<%= render "review_form" %>
+
+<div class="review">
+</div>
+
+
 <% @reviews.each do |review| %>
-  <%= review.body %>
+  <div class="review"><h4><%= review.body %></h4>
+    <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
+    <div id="comment_form-<%= review.id %>"> </div>
+    <div id="comments-<%= review.id %>">
     <% review.comments.each do |comment| %>
-    <%= comment.body %>
+      <p><%= comment.body %></p>
     <% end %>
-    <%= form_for @comment do |f| %>
-    <%= f.label "Submit Comment:" %>
-    <%= f.text_area :body, :size => "100" %><br />
-    <%= f.hidden_field :review_id, :value => review.id %>
-    <%= f.submit "Submit" %>
-  <% end %>
-
+    </div>
+  </div>
 <% end %>
 
-<%= form_for @review do |f| %>
-<%= f.label "Submit Review:" %>
-<%= f.text_area :body, :size => "100" %><br />
-<%= f.hidden_field :code_submission_id %>
-<%= f.submit "Submit" %>
-<% end %>
+
 
 
 

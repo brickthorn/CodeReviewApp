@@ -1,7 +1,7 @@
 class CodeSubmission < ActiveRecord::Base
   attr_accessible :description, :url, :user_id
   
-  validates_presence_of :url
+  validates_presence_of :url, :description
   
   has_many :reviews
   belongs_to :user
