@@ -1,93 +1,59 @@
 <h1><%= @code_submission.description %></h1>
-  <!-- <div id="gist"></div> -->
-  <pre class="brush: ruby; ruler: true; first-line: 1; highlight: [2, 4, 6]"" id="gist" style="word_wrap; break-word; white-space; pre-wrap;"></pre>
-  <!-- <textarea rows="50" class="span8"></textarea> -->
+  <% url = @code_submission.url.split('/') %>
+  <% username = url.fourth %>
+  
+  <pre id="code" class="brush: ruby; ruler: true; first-line: 1; highlight: [2, 4, 6]" ></pre>
+  
   <% if @code_submission.url.split('/').third.start_with?('gist') %>
+
     <script>
-      
-      var userGist = new Gh3.Gist({id: "<%=j @code_submission.url.split('/').last %>" });
 
-      userGist.fetchContents(function (err, res) {
-
-        if(err) { throw "outch ..." }
-
-        console.log("userGist : ", userGist);
-        console.log("Files : ", userGist.files);
-        $("#gist").text(userGist.files[0].content);
-
-      });
-
-      SyntaxHighlighter.all()
+        var github = new Github({
+          username: "<%=j username %>",
+          password: "",
+          auth: "basic"
+        });
 
 
-      </script>
-  <% else %>
-    <script>
-        var user = new Gh3.User("<%=j @code_submission.url.split('/').fourth %>");
-        var repo = "<%=j @code_submission.url.split('/').fifth %>" ;
-        var dir = "<%=j @code_submission.url.split('/')[-2]  %>" ;
+        var gist = github.getGist("<%=j url.last %>");
+
+        gist.read(function(err, gist) {
+          
+          for( k in gist.files ){           
+            $("#code").text(gist.files[k].content);
+          }
+
+        });
+
+        //SyntaxHighlighter.all();
         
-        var userRepo = new Gh3.Repository(repo, user);
-        //console.log(userRepo);
+      </script>
 
-        userRepo.fetchBranches(function (err, res) {
-            if(err) { throw "outch ..." }
-            //console.log(res);
+  <% else %>
+      
+    <script>
 
-            var master = res.getBranchByName("master");
-            //console.log(master);
+        
+        var username = "<%=j username %>" ;
+        var reponame = "<%=j url.fifth %>" ;
+        var master = "<%=j url[6] %>" ;
+        var path =   "<%=j [url[7..-1]].join('/') %>"  ;   
 
-            master.fetchContents(function (err, res) {
-                if(err) { throw "outch ..." }
-                //console.log(res);
+        var github = new Github({
+          username: username,
+          password: "",
+          auth: "basic"
+        });
 
-               var app = res.getDirByName("app");
-               //console.log(app);
+        
+        var repo = github.getRepo(username, reponame);
+        //debugger;
 
-               app.fetchContents( function(err, res){
-                  if(err) { throw "outch ..."}
-                  //console.log(app.getContents());
+        repo.read(master, path, function(err, contents) {
+          $("#code").text(contents);
+        }); 
 
-                  var views = res.getDirByName("views");
-                  //console.log(views);
-
-                  views.fetchContents( function(err, res) {
-                      if(err) { throw "outch ..."}
-                      console.log(views.getContents());
-
-                      var users = res.getDirByName("users");
-
-                      //console.log(users);
-
-                      users.fetchContents( function(err, res) {
-                          if(err) { throw "outch ..."}
-
-                          console.log(users.getContents());
-
-                          var myfile = users.getFileByName("show.html.erb");
-
-                          myfile.fetchContent(function (err, res) {
-                              if (err) { throw "outch ..."}
-
-                              //console.log(myfile.getRawContent());
-                              //$("#gist").text(myfile.getRawContent());
-
-                          }); //file
-
-
-                      }); // users
-
-
-                  }); // views
-                    
-              }); // app
-
-            }); // master
-
-        }) // repo
-
-
-    SyntaxHighlighter.all()
+      //SyntaxHighlighter.all();
 
   </script>
 <% end %>
@@ -109,8 +75,3 @@
     </div>
   </div>
 <% end %>
-
-
-
-
-
