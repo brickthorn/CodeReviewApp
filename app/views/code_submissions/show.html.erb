@@ -69,7 +69,7 @@
       var editor = ace.edit("editor");
       var textarea = $('textarea[name="description"]').hide();
       
-      editor.getSession().setMode("ace/mode/ruby");
+      editor.getSession().setMode("ace/mode/<%=j @code_submission.language %>");
 
       editor.setTheme("ace/theme/monokai");
       editor.getSession().setValue(textarea.val());
