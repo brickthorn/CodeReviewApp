@@ -1,0 +1,86 @@
+<h2><%= @random_code.description %></h2>
+  <% url = @random_code.url.split('/') %>
+  <% username = url.fourth %>
+  <div style="position:relative; height: 450px; " >
+    <textarea name="description"></textarea>
+    <div id="editor" style="position: absolute; width: 100%; height: 450px;">
+    </div>
+  </div>
+  <div style="position:relative; height: 20px; "></div>
+  
+  <% if @random_code.url.split('/').third.start_with?('gist') %>
+
+    <script>
+
+        var github = new Github({
+          username: "<%=j username %>",
+          password: "",
+          auth: "basic"
+        });
+
+
+        var gist = github.getGist("<%=j url.last %>");
+
+        gist.read(function(err, gist) {
+          
+          for( k in gist.files ){           
+            $('textarea[name="description"]').text(gist.files[k].content);  
+          }
+
+          code_editor();
+
+        });
+        
+      </script>
+
+  <% else %>
+      
+    <script>
+
+        
+        var username = "<%=j username %>" ;
+        var reponame = "<%=j url.fifth %>" ;
+        var master = "<%=j url[6] %>" ;
+        var path =   "<%=j [url[7..-1]].join('/') %>"  ;   
+
+        var github = new Github({
+          username: username,
+          password: "",
+          auth: "basic"
+        });
+
+        
+        var repo = github.getRepo(username, reponame);
+        //debugger;
+
+        repo.read(master, path, function(err, contents) {
+          $('textarea[name="description"]').text(contents);
+          code_editor();
+        }); 
+
+
+  </script>
+<% end %>
+
+<script>
+
+  var code_editor = function() {
+  
+      var editor = ace.edit("editor");
+      var textarea = $('textarea[name="description"]').hide();
+      
+      editor.getSession().setMode("ace/mode/<%=j @random_code.language %>");
+
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setValue(textarea.val());
+      editor.setReadOnly(true);
+      
+      editor.getSession().on('change', function(){
+        textarea.val(editor.getSession().getValue());
+      });
+
+
+  };
+
+</script>
+
