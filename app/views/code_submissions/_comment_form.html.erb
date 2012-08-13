@@ -1,16 +1,22 @@
 <%= form_for @comment, :remote => true do |f| %>
-<%= f.label "Submit Comment:" %>
+<%= f.label "Submit Comment:", :class => "comment-text" %>
 <%= f.text_area :body, :size => "100", :class => "comment-#{review}" %><br />
 <%= f.hidden_field :review_id, :value => review %>
-<%= f.submit "Submit" %>
+<div id="submit-button" >
+<%= f.submit "Submit", :class => "btn btn-info" %>
 
-<p class="cancel-button">Cancel</p>
+&nbsp;<span class="cancel" id="cancel-button" style="color:#0088cc">Cancel</span>
+
+</div>
+
+
+
 <% end %>
 
 <script>
 $(document).ready(function(){
-  $('.cancel-button').click( function(evt){
-      console.log($(this).attr())
+  $('#cancel-button').click( function(){
+      $("#comment_form-<%=j review %>").empty();
     $('.new-comment').html(
       "Submit a comment"
       );
@@ -21,3 +27,4 @@ $(document).ready(function(){
   });
 });
 </script>
+
