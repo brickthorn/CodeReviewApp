@@ -9,8 +9,8 @@
 
 <script>
 $(document).ready(function(){
-  $('.cancel-button').on("click", "div", function(evt){
-      console.log($(this).text())
+  $('.cancel-button').click( function(evt){
+      console.log($(this).attr())
     $('.new-comment').html(
       "Submit a comment"
       );
