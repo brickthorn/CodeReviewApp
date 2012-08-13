@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require syntaxhighlighter
+//= require ace
+//= require ace/theme/monokai.js
+//= require ace/mode/ruby.js
+//= require ace/mode/javascript.js
+//= require ace/mode/html.js
+//= require ace/mode/css.js
 //= require_tree .
 
