@@ -2,8 +2,9 @@ class CodeSubmissionsController < ApplicationController
   before_filter :authenticate_user!, :only => [ :new, :create, :destroy ]
 
   def index
-    @code_submissions = CodeSubmission.all
+    @code_submissions = CodeSubmission.order(:created_at).page(params[:page]).per(5)
     @code_submission = CodeSubmission.new
+    @random_code = CodeSubmission.all[rand(-10..-1)]
   end
 
   def new
