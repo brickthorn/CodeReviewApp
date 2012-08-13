@@ -1,14 +1,14 @@
-<h1><%= @code_submission.description %></h1>
-  <% url = @code_submission.url.split('/') %>
+<h2><%= @random_code.description %></h2>
+  <% url = @random_code.url.split('/') %>
   <% username = url.fourth %>
-  <div style="position:relative; top: -20px; height: 450px; " >
+  <div style="position:relative; height: 450px; " >
     <textarea name="description"></textarea>
-    <div id="editor" style="position: absolute; width: 800px; height: 450px;">
+    <div id="editor" style="position: absolute; width: 100%; height: 450px;">
     </div>
   </div>
-  <div style="position:relative; height: 100px; "></div>
+  <div style="position:relative; height: 20px; "></div>
   
-  <% if @code_submission.url.split('/').third.start_with?('gist') %>
+  <% if @random_code.url.split('/').third.start_with?('gist') %>
 
     <script>
 
@@ -69,7 +69,7 @@
       var editor = ace.edit("editor");
       var textarea = $('textarea[name="description"]').hide();
       
-      editor.getSession().setMode("ace/mode/<%=j @code_submission.language %>");
+      editor.getSession().setMode("ace/mode/<%=j @random_code.language %>");
 
       editor.setTheme("ace/theme/monokai");
       editor.getSession().setValue(textarea.val());
@@ -83,34 +83,4 @@
   };
 
 </script>
-<div class="content-container">
-  
-<div class = "well" style="width: 600px; height: 140px; ">
-<%= render "review_form" %>
-</div>
-
-<div class="review"></div>
-
-<% @reviews.each do |review| %>
-  <div class="review"><h4><%= review.body %></h4>
-    <span class="comment-text">
-    <div id="comment_form-<%= review.id %>"> </div>
-    <div id="comments-<%= review.id %>">
-    <% review.comments.each do |comment| %>
-      <p class="comment-copy">- <%= comment.body %></p>
-    <% end %>
-    <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
-    </div>
-    <hr>
-    </span>
-  </div>
-
-<% end %>
-
-</div>
-
-
-
-<div class="footer-spacer">
-
 
