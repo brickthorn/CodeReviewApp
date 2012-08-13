@@ -1,3 +1,60 @@
 // Place all the styles related to the code_submissions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.cancel:hover
+{
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+
+.submit-text
+{
+  font-size:14pt;
+  font-weight:bold;
+}
+
+
+.form {
+  display: block;
+  margin-top: 0em;
+}
+
+.comment-text 
+{
+  font-size:8pt;
+  font-style:italic;
+}
+
+.comment-copy
+{
+  font-size:8pt;
+  font-style:italic;
+  margin-left:40px;
+}
+
+hr {
+  border: 1;
+  width: 60%;
+}
+
+
+.footer-spacer {
+  height: 100px;
+}
+
+.review-block {
+  
+}
+
+
+.author-display{
+  border: 2;
+  float: right;
+  align: top;
+}
+
+
