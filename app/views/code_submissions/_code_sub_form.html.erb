@@ -22,7 +22,9 @@
         <p><%= f.label "Code Description" %>
         <%= f.text_field :description, :placeholder => "Enter description...", :rows => "1" %></p>
       </div>
-
+      <p>
+        <%= f.select(:language, code_languages, :prompt => "Select Language") %>
+      </p>
     </div>
     <div class="offset4">
       <%= f.submit "Submit", class: "btn btn-success btn-large" %>
