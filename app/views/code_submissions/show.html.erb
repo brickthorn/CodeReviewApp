@@ -1,30 +1,93 @@
 <h1><%= @code_submission.description %></h1>
-  <!-- <div id="gist"></div> -->
-  <pre class="brush: ruby; ruler: true; first-line: 1; highlight: [2, 4, 6]"" id="gist" style="word_wrap; break-word; white-space; pre-wrap;"></pre>
-  <!-- <textarea rows="50" class="span8"></textarea> -->
+  <% url = @code_submission.url.split('/') %>
+  <% username = url.fourth %>
+  <div style="position:relative; height: 450px; " >
+    <textarea name="description"></textarea>
+    <div id="editor" style="position: absolute; width: 600px; height: 450px;">
+    </div>
+  </div>
+  <div style="position:relative; height: 100px; "></div>
+  
+  <% if @code_submission.url.split('/').third.start_with?('gist') %>
+
+    <script>
+
+        var github = new Github({
+          username: "<%=j username %>",
+          password: "",
+          auth: "basic"
+        });
+
+
+        var gist = github.getGist("<%=j url.last %>");
+
+        gist.read(function(err, gist) {
+          
+          for( k in gist.files ){           
+            $('textarea[name="description"]').text(gist.files[k].content);  
+          }
+
+          code_editor();
+
+        });
+        
+      </script>
+
+  <% else %>
+      
+    <script>
+
+        
+        var username = "<%=j username %>" ;
+        var reponame = "<%=j url.fifth %>" ;
+        var master = "<%=j url[6] %>" ;
+        var path =   "<%=j [url[7..-1]].join('/') %>"  ;   
+
+        var github = new Github({
+          username: username,
+          password: "",
+          auth: "basic"
+        });
+
+        
+        var repo = github.getRepo(username, reponame);
+        //debugger;
+
+        repo.read(master, path, function(err, contents) {
+          $('textarea[name="description"]').text(contents);
+          code_editor();
+        }); 
+
+
+  </script>
+<% end %>
+
 <script>
 
-  var userGist = new Gh3.Gist({id: "<%=j @code_submission.url.split("/").last %>" });
+  var code_editor = function() {
+  
+      var editor = ace.edit("editor");
+      var textarea = $('textarea[name="description"]').hide();
+      
+      editor.getSession().setMode("ace/mode/ruby");
 
-  userGist.fetchContents(function (err, res) {
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setValue(textarea.val());
+      editor.setReadOnly(true);
+      
+      editor.getSession().on('change', function(){
+        textarea.val(editor.getSession().getValue());
+      });
 
-    if(err) { throw "outch ..." }
 
-    console.log("userGist : ", userGist);
-    console.log("Files : ", userGist.files);
-    $("#gist").text(userGist.files[0].content);
-
-  });
-
-  //SyntaxHighlighter.config.bloggerMode = true;
-  SyntaxHighlighter.all()
+  };
 
 </script>
 
+
 <%= render "review_form" %>
 
-<div class="review">
-</div>
+<div class="review"></div>
 
 
 <% @reviews.each do |review| %>
@@ -38,8 +101,5 @@
     </div>
   </div>
 <% end %>
-
-
-
 
 

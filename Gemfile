@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 gem 'devise'
 gem "thin", "~> 1.4.1"
+gem "ace-editor", "~> 0.2.0.1362"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
