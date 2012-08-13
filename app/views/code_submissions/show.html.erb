@@ -1,8 +1,12 @@
 <h1><%= @code_submission.description %></h1>
   <% url = @code_submission.url.split('/') %>
   <% username = url.fourth %>
-  
-  <pre id="code" class="brush: ruby; ruler: true; first-line: 1; highlight: [2, 4, 6]" ></pre>
+  <div style="position:relative; height: 450px; " >
+    <textarea name="description"></textarea>
+    <div id="editor" style="position: absolute; width: 600px; height: 450px;">
+    </div>
+  </div>
+  <div style="position:relative; height: 100px; "></div>
   
   <% if @code_submission.url.split('/').third.start_with?('gist') %>
 
@@ -20,12 +24,12 @@
         gist.read(function(err, gist) {
           
           for( k in gist.files ){           
-            $("#code").text(gist.files[k].content);
+            $('textarea[name="description"]').text(gist.files[k].content);  
           }
 
-        });
+          code_editor();
 
-        //SyntaxHighlighter.all();
+        });
         
       </script>
 
@@ -50,18 +54,40 @@
         //debugger;
 
         repo.read(master, path, function(err, contents) {
-          $("#code").text(contents);
+          $('textarea[name="description"]').text(contents);
+          code_editor();
         }); 
 
-      //SyntaxHighlighter.all();
 
   </script>
 <% end %>
 
+<script>
+
+  var code_editor = function() {
+  
+      var editor = ace.edit("editor");
+      var textarea = $('textarea[name="description"]').hide();
+      
+      editor.getSession().setMode("ace/mode/ruby");
+
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setValue(textarea.val());
+      editor.setReadOnly(true);
+      
+      editor.getSession().on('change', function(){
+        textarea.val(editor.getSession().getValue());
+      });
+
+
+  };
+
+</script>
+
+
 <%= render "review_form" %>
 
-<div class="review">
-</div>
+<div class="review"></div>
 
 
 <% @reviews.each do |review| %>
@@ -75,3 +101,5 @@
     </div>
   </div>
 <% end %>
+
+
