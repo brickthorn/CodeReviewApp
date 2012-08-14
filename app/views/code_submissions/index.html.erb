@@ -22,10 +22,10 @@
 		  		<td><%= link_to 'Review This Code', code_submission_path(submission), class: "btn btn-danger btn-small" %></td>
 		  	</tr>
 		  	<tr>
-		  		<td colspan="2"><%= submission.description %></td>
+		  		<td colspan="2" class="well"><%= submission.description %></td>
 		  	</tr>
 		    <tr>
-		      	<td><i class="icon-user"></i>
+		      	<td colspan="2"><i class="icon-user"></i>
 		      		<%= link_to submission.user.name, user_path(:id => submission.user.id) %>&nbsp;&nbsp;
 		      		<i class="icon-calendar"></i>
 					<%= submission.created_at.strftime("%b %e, %Y") %>&nbsp;&nbsp;
