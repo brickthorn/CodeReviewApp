@@ -1,4 +1,4 @@
-<h1><%= @code_submission.description %></h1>
+<h1><%= @code_submission.title %></h1>
   <% url = @code_submission.url.split('/') %>
   <% username = url.fourth %>
   <div style="position:relative; height: 450px " >
@@ -33,7 +33,7 @@
         
       </script>
 
-  <% else %>
+  <% elsif @code_submission.url.split('/').third.start_with?('github.com') %>
       
     <script>
 
@@ -60,6 +60,13 @@
 
 
   </script>
+  <% else %>
+    
+    <script>
+      $('textarea[name="description"]').text("Something not right! Please submit a proper github gist or repo url");
+      code_editor();
+    </script>
+
 <% end %>
 
 <script>
