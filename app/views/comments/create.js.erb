@@ -1,7 +1,4 @@
-$("#comments-<%= @comment.review_id %>").append("<p class='comment-copy'>- <%= @comment.body %></p>"); 
-
-
-
+$("#comments-<%= @comment.review_id %>").prepend("<p class='comment-copy'>- <%= @comment.body %></p>"); 
 
 $('.new-comment').html(
   "Submit a comment"

@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.content-container{
+  padding-left: 50px;
+  padding-right: 100px;
+}
+
+
+.review-text{
+  font-size:14pt;
+  padding-bottom:15px;
+}
 
 .cancel:hover
 {
@@ -10,6 +20,9 @@
   text-decoration:underline;
 }
 
+.review {
+
+}
 
 .submit-text
 {
@@ -38,7 +51,7 @@
 
 hr {
   border: 1;
-  width: 60%;
+  width: 100%;
 }
 
 
@@ -52,7 +65,7 @@ hr {
 
 
 .author-display{
-  border: 2;
+  padding-left: 30px;
   float: right;
   align: top;
 }

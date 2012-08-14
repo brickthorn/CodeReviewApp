@@ -1,7 +1,7 @@
 <h1><%= @code_submission.title %></h1>
   <% url = @code_submission.url.split('/') %>
   <% username = url.fourth %>
-  <div style="position:relative; top: -20px; height: 450px; " >
+  <div style="position:relative; height: 450px " >
     <textarea name="description"></textarea>
     <div id="editor" style="position: absolute; width: 800px; height: 450px;">
     </div>
@@ -99,17 +99,18 @@
 <div class="review"></div>
 
 <% @reviews.each do |review| %>
-  <div class="review"><h4><%= review.body %></h4>
-    <span class="comment-text">
-    <div id="comment_form-<%= review.id %>"> </div>
-    <div id="comments-<%= review.id %>">
-    <% review.comments.each do |comment| %>
-      <p class="comment-copy">- <%= comment.body %></p>
-    <% end %>
-    <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
-    </div>
+  <%= render :partial => "author_display", :locals => { :review => review } %>
+  <div class="review"><div class="review-text"><%= review.body %></div>
+      <span class="comment-text">
+        <div id="comment_form-<%= review.id %>"> </div>
+        <div id="comments-<%= review.id %>">
+          <% review.comments.reverse.each do |comment| %>
+            <p class="comment-copy">- <%= comment.body %></p>
+          <% end %>
+        </div>
+        <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
+      </span>
     <hr>
-    </span>
   </div>
 
 <% end %>
