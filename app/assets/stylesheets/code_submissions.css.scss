@@ -4,12 +4,20 @@
 
 
 
+.content-container{
+  padding-left: 50px;
+  padding-right: 100px;
+}
+
 .cancel:hover
 {
   cursor:pointer;
   text-decoration:underline;
 }
 
+.review {
+
+}
 
 .submit-text
 {
@@ -38,7 +46,7 @@
 
 hr {
   border: 1;
-  width: 60%;
+  width: 100%;
 }
 
 
@@ -52,7 +60,7 @@ hr {
 
 
 .author-display{
-  border: 2;
+  padding-left: 30px;
   float: right;
   align: top;
 }

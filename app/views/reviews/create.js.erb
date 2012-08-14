@@ -1,7 +1,9 @@
-$('.review:last-child').append("<div><h4><%= @review.body %></h4></div>");
+$('.review:last-child').append("<%=j render :partial => 'code_submissions/author_display', :locals => { :review => @review } %>");
+$('.review:last-child').append("<div class='review'><h4><%= @review.body %></h4></div>");
 $('.review:last-child').append("<div id='comment_form-<%= @review.id %>'> </div><div id='comments-<%= @review.id %>' ></div>");
 $('#review_body').val(null);
 $('.review:last-child').append("<span class='comment-text'><%=j link_to 'Submit a comment', new_comment_path(:review => @review), :remote => true, class: 'new-comment' %></span><hr>");
+
 
 
 
