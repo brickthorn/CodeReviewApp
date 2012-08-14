@@ -93,17 +93,17 @@
 
 <% @reviews.each do |review| %>
   <%= render :partial => "author_display", :locals => { :review => review } %>
-  <div class="review"><h4><%= review.body %></h4>
-        <span class="comment-text">
-      <div id="comment_form-<%= review.id %>"> </div>
-      <div id="comments-<%= review.id %>">
-        <% review.comments.each do |comment| %>
-          <p class="comment-copy">- <%= comment.body %></p>
-        <% end %>
+  <div class="review"><div class="review-text"><%= review.body %></div>
+      <span class="comment-text">
+        <div id="comment_form-<%= review.id %>"> </div>
+        <div id="comments-<%= review.id %>">
+          <% review.comments.reverse.each do |comment| %>
+            <p class="comment-copy">- <%= comment.body %></p>
+          <% end %>
+        </div>
         <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
-      </div>
+      </span>
     <hr>
-    </span>
   </div>
 
 <% end %>
