@@ -1,13 +1,36 @@
-    <h1><%= @user.email %></h1>
-    <div><%= image_tag avatar_url(@user) %></div>
-      <table width="100%" border='1'>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="span8">
+      <h1>Review Feed</h1>
+
+      <table width="100%" class="table border-free-table">
+        <% @reviews.each do |review| %>
+          <tr>
+            <td><%= link_to review.body, code_submission_path(review.code_submission_id) %></td>
+            <td><%= review.created_at.strftime("%b %e, %Y") %></td>
+          </tr>
+        <% end %>
+      </table>
+      <div><%= paginate @reviews %></div>
+    </div>
+    <div class="span4 well">
+      <div><%= image_tag avatar_url(@user) %></div>
+      <h1><%= @user.name %></h1>
+
+    </div>
+  </div>
+</div>
+
+<hr />
+     <h1>Submitted Code</h1><br />
+      <table width="100%" class="table border-free-table">
         <% @user.code_submissions.each do |code| %>
           <tr>
-            <td><%= link_to code.description, code_submission_path(code) %></td>
+            <td><%= link_to code.title, code_submission_path(code) %></td>
             <td>UPDATES ON CODE</td>
           </tr>
         <% end %>
-        </table>
+      </table>
 
 <% if signed_in? && current_user == @user %>
   
