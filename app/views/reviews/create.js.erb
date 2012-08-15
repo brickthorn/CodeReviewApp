@@ -1,3 +1,4 @@
+$('.review:last-child').append("<%=j render :partial => 'code_submissions/vote_display_review', :locals => { :review => @review }%>")
 $('.review:last-child').append("<%=j render :partial => 'code_submissions/author_display', :locals => { :review => @review } %>");
 $('.review:last-child').append("<div class='review'><div class='review-text'><%= @review.body %></div></div>");
 $('.review:last-child').append("<div id='comment_form-<%= @review.id %>'> </div><div id='comments-<%= @review.id %>' ></div>");
