@@ -7,16 +7,24 @@
         <% @reviews.reverse.each do |review| %>
           <tr>
             <td><%= link_to review.body, code_submission_path(review.code_submission_id) %></td>
+            <td><%= link_to review.user.name, code_submission_path(review.code_submission_id) %></td>
             <td><%= review.created_at.strftime("%b %e, %Y") %></td>
           </tr>
         <% end %>
       </table>
       <div><%= paginate @reviews %></div>
     </div>
-    <div class="span4 well">
+    <div class="span4 well" style="margin-top: 55px">
+      <div style="min-height: 300px; ">
       <div><%= image_tag avatar_url(@user) %></div>
       <h1><%= @user.name %></h1>
-
+      <hr />
+      <table class="well">
+          <tr><td><h3>Submissions</h3></td><td><h3>: <%= @user.code_submissions.count %></h3></td></tr>
+          <tr><td><h3>Reviews    </h3></td><td><h3>: <%= @reviews.count %></h3></td></tr>
+          <tr><td><h3>Comments   </h3></td><td><h3>: <%= @user.comments.count %></h3></td></tr>
+      </table>
+    </div>
     </div>
   </div>
 </div>
