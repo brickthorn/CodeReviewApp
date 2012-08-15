@@ -4,7 +4,7 @@
       <h1>Review Feed</h1>
 
       <table width="100%" class="table border-free-table">
-        <% @reviews.each do |review| %>
+        <% @reviews.reverse.each do |review| %>
           <tr>
             <td><%= link_to review.body, code_submission_path(review.code_submission_id) %></td>
             <td><%= review.created_at.strftime("%b %e, %Y") %></td>

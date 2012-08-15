@@ -81,6 +81,7 @@
       editor.setTheme("ace/theme/monokai");
       editor.getSession().setValue(textarea.val());
       editor.setReadOnly(true);
+      editor.setShowPrintMargin(false);
       
       editor.getSession().on('change', function(){
         textarea.val(editor.getSession().getValue());
