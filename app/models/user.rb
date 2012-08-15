@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :comments
 
+  acts_as_voter
 
   validates_uniqueness_of :name
 end

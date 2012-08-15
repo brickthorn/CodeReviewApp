@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.vote{
+  float: left;
+  padding-right: 20px;
+  background-color: gray;
+}
+
+.vote-count{
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+}
 
 .content-container{
   padding-left: 50px;
@@ -46,7 +57,7 @@
 {
   font-size:8pt;
   font-style:italic;
-  margin-left:40px;
+  margin-left:80px;
 }
 
 hr {

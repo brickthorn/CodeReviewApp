@@ -98,8 +98,19 @@
 
 <div class="review"></div>
 
-<% @reviews.each do |review| %>
+
+<% @code_submission.reviews.each do |review| %>
   <%= render :partial => "author_display", :locals => { :review => review } %>
+  <% @current_user = current_user %>
+
+  <div class="vote">
+  <div><%= link_to(image_tag("up_arrow.gif", :border => 0), votes_path(:vote => {:voteable => review, :vote => true, :voteable_type => "Review"}), :method => :post, :remote => true) %></div>
+  <div class="vote-count"> 
+    <%= (review.votes_for - review.votes_against) %>
+  </div>
+    <div><%= link_to(image_tag("down_arrow.gif", :border => 0), votes_path(:vote => {:voteable => review, :vote => false, :voteable_type => "Review"}), :method => :post, :remote => true) %></div>
+  </div>
+  
   <div class="review"><div class="review-text"><%= review.body %></div>
       <span class="comment-text">
         <div id="comment_form-<%= review.id %>"> </div>

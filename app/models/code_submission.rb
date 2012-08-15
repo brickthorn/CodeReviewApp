@@ -1,5 +1,7 @@
 class CodeSubmission < ActiveRecord::Base
-  attr_accessible :description, :url, :user_id, :language, :title
+  acts_as_voteable
+  
+  attr_accessible :description, :url, :user_id, :language, :title, :vote_count
   
   validates_presence_of :url, :description, :language, :title
   validates_format_of :url, with: /https:\/\/(gist.github|github)/i
@@ -11,4 +13,5 @@ class CodeSubmission < ActiveRecord::Base
 
 
 end
+
 
