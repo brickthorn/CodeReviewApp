@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.vote{
+  float: left;
+  padding-right: 20px;
+}
+
+.vote-count{
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+}
+
 .content-container{
   padding-left: 50px;
   padding-right: 100px;
@@ -46,7 +57,7 @@
 {
   font-size:8pt;
   font-style:italic;
-  margin-left:40px;
+  margin-left:80px;
 }
 
 hr {
@@ -69,5 +80,14 @@ hr {
   float: right;
   align: top;
 }
+
+.header{
+  font-size:20pt;
+  font-weight:bold;
+  align: center;
+  line-height: 1;
+}
+
+
 
 

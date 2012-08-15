@@ -1,0 +1,5 @@
+if(<%=j (@voteable.kind_of?(Review)).to_s %> == true) {
+  $('#vote-<%= @voteable.id %>').html('<%=j (@voteable.votes_for - @voteable.votes_against).to_s  %>');
+} else {
+  $('#vote-submission').html('<%=j (@voteable.votes_for - @voteable.votes_against).to_s  %>');
+}

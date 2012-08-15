@@ -2,7 +2,7 @@ CodeReviewApp::Application.routes.draw do
 
   root :to => "code_submissions#index"
   
-  resources :code_submissions, :reviews, :comments
+  resources :code_submissions, :reviews, :comments, :votes
 
   devise_for :users
 

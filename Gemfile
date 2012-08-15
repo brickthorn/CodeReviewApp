@@ -5,6 +5,7 @@ gem 'devise'
 gem "thin", "~> 1.4.1"
 gem "ace-editor", "~> 0.2.0.1362"
 gem 'kaminari'
+gem 'thumbs_up'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

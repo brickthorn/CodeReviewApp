@@ -1,0 +1,7 @@
+<div class="vote">
+  <div><%= link_to(image_tag("up_arrow.gif", :border => 0), votes_path(:vote => {:voteable => voteable, :vote => true, :voteable_type => "CodeSubmission"}), :method => :post, :remote => true) %></div>
+  <div class="vote-count" id="vote-submission"> 
+    <%= (voteable.votes_for - voteable.votes_against) %>
+  </div>
+  <div><%= link_to(image_tag("down_arrow.gif", :border => 0), votes_path(:vote => {:voteable => voteable, :vote => false, :voteable_type => "CodeSubmission"}), :method => :post, :remote => true) %></div>
+</div>
