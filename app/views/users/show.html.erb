@@ -27,7 +27,7 @@
         <% @user.code_submissions.each do |code| %>
           <tr>
             <td><%= link_to code.title, code_submission_path(code) %></td>
-            <td>UPDATES ON CODE</td>
+            <td><span class="label label-info"><%= "#{pluralize(code.reviews.count, 'review')}" %></span></td>
           </tr>
         <% end %>
       </table>
