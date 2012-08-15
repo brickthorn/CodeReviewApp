@@ -1,6 +1,6 @@
 <div class="author-display">
   <i class="icon-user"></i>
-  		<%= link_to review.user.name, user_path(:id => review.user.id) %>&nbsp;&nbsp;<br />
+  		<%= link_to voteable.user.name, user_path(:id => voteable.user_id) %>&nbsp;&nbsp;<br />
   		<i class="icon-calendar"></i>
-	<%= review.created_at.strftime("%b %e, %Y") %>&nbsp;&nbsp;
+	<%= voteable.created_at.strftime("%b %e, %Y") %>&nbsp;&nbsp;
 </div>
