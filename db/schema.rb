@@ -16,12 +16,11 @@ ActiveRecord::Schema.define(:version => 20120815180708) do
   create_table "code_submissions", :force => true do |t|
     t.integer  "user_id"
     t.string   "url"
-    t.string   "description"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "language"
-    t.string   "title"
-    t.integer  "vote_count",  :default => 0
+    t.text     "title"
   end
 
   create_table "comments", :force => true do |t|

@@ -4,19 +4,27 @@
       <h1>Review Feed</h1>
 
       <table width="100%" class="table border-free-table">
-        <% @reviews.each do |review| %>
+        <% @reviews.reverse.each do |review| %>
           <tr>
             <td><%= link_to review.body, code_submission_path(review.code_submission_id) %></td>
+            <td><%= link_to review.user.name, code_submission_path(review.code_submission_id) %></td>
             <td><%= review.created_at.strftime("%b %e, %Y") %></td>
           </tr>
         <% end %>
       </table>
       <div><%= paginate @reviews %></div>
     </div>
-    <div class="span4 well">
+    <div class="span4 well" style="margin-top: 55px">
+      <div style="min-height: 300px; ">
       <div><%= image_tag avatar_url(@user) %></div>
       <h1><%= @user.name %></h1>
-
+      <hr />
+      <table class="well">
+          <tr><td><h3>Submissions</h3></td><td><h3>: <%= @user.code_submissions.count %></h3></td></tr>
+          <tr><td><h3>Reviews    </h3></td><td><h3>: <%= @reviews.count %></h3></td></tr>
+          <tr><td><h3>Comments   </h3></td><td><h3>: <%= @user.comments.count %></h3></td></tr>
+      </table>
+    </div>
     </div>
   </div>
 </div>
@@ -27,7 +35,7 @@
         <% @user.code_submissions.each do |code| %>
           <tr>
             <td><%= link_to code.title, code_submission_path(code) %></td>
-            <td>UPDATES ON CODE</td>
+            <td><span class="label label-info"><%= "#{pluralize(code.reviews.count, 'review')}" %></span></td>
           </tr>
         <% end %>
       </table>

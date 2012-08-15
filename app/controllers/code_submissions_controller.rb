@@ -4,7 +4,8 @@ class CodeSubmissionsController < ApplicationController
   def index
     @code_submissions = CodeSubmission.order("created_at DESC").page(params[:page]).per(5)
     @code_submission = CodeSubmission.new
-    @random_code = CodeSubmission.all[rand(-10..-1)]
+    @random_code = CodeSubmission.all[Random.new.rand(-10..-1)]
+    @random_code ||= CodeSubmission.new
   end
 
   def new

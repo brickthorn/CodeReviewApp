@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   validates_uniqueness_of :name
+
+  after_create :send_email
+
+  def send_email
+    # Tell the UserMailer to send a welcome Email after save
+    UserMailer.welcome_email(self).deliver
+  end
+
 end

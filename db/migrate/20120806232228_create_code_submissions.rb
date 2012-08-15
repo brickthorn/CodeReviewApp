@@ -3,7 +3,7 @@ class CreateCodeSubmissions < ActiveRecord::Migration
     create_table :code_submissions do |t|
       t.integer :user_id
       t.string :url
-      t.string :description
+      t.text :description
 
       t.timestamps
     end
