@@ -1,4 +1,4 @@
-$("#comments-<%= @comment.review_id %>").prepend("<p class='comment-copy'>- <%= @comment.body %></p>"); 
+$("#comments-<%= @comment.review_id %>").prepend("<p class='comment-copy'>- <%=j @comment.body %> - <%=j link_to @comment.user.name, user_path(@comment.user_id) %></p>"); 
 
 $('.new-comment').html(
   "Submit a comment"
