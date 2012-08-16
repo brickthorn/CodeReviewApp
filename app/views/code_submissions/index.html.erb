@@ -1,10 +1,10 @@
 <div class="hero-unit">
-	<h1>Get your code reviewed!</h1><br /><br />
+	<h1>Get your code reviewed!</h1><br />
 	<div class="row">
-  		<div class="span4">
+  		<div class="span5">
   			<%= render "code_submissions/code_sub_form" %>
   		</div>
-  		<div class="span6">
+  		<div class="span5">
   			<h3>Submit to CodeRedux, get reviews.</h3>
   			<p>Improve your code with input from other professionals. CodeRedux helps you get quality reviews from experts in the language.</p>   
   			<p>Make it better, faster, and leaner.</p>
@@ -37,7 +37,7 @@
 			</table>
 			<% end %>
 		
-			<div><%= paginate @code_submissions %></div>
+     <%= paginate @code_submissions %>
 		</div>
 		<div class="span6">
 			<%= render "code_submissions/random_code" %>

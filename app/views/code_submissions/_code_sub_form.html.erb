@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-        <p><%= f.text_field :url, :placeholder => "Enter github gist/repo url..." %></p>
-        <p><%= f.text_field :title, :placeholder => "Enter title..." %></p>
-        <p><%= f.text_area :description, :placeholder => "Enter description...", :rows => "2" %></p>
+        <p><%= f.text_field :url, :placeholder => "Enter github gist/repo url...", class: "span4" %></p>
+        <p><%= f.text_field :title, :placeholder => "Enter title...", class: "span4" %></p>
+        <p><%= f.text_area :description, :placeholder => "Enter description...", :rows => "2", class: "span4" %></p>
         <p><%= f.select :language, code_languages, :prompt => "Select Language" %></p>
 
       <%= f.submit "Submit", class: "btn btn-success btn-large" %>
