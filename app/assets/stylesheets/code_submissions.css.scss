@@ -4,20 +4,18 @@
 
 
 .vote{
-  float: left;
-  padding-right: 20px;
+  text-align: center;
 }
 
 .vote-count{
   font-size: 14pt;
   font-weight: bold;
-  text-align: center;
 }
-
-.content-container{
-  padding-left: 50px;
-  padding-right: 100px;
-}
+//
+//.content-container{
+//  padding-left: 50px;
+//  padding-right: 100px;
+//}
 
 
 .review-text{
@@ -31,9 +29,6 @@
   text-decoration:underline;
 }
 
-.review {
-
-}
 
 .submit-text
 {
@@ -75,17 +70,19 @@ hr {
 }
 
 
+.author-display-inline{
+  vertical-align: middle;
+}
+
 .author-display{
-  padding-left: 30px;
-  float: right;
-  align: top;
+  vertical-align: bottom;
 }
 
 .header{
   font-size:20pt;
   font-weight:bold;
-  align: center;
   line-height: 1;
+  margin-bottom: 8px;
 }
 
 

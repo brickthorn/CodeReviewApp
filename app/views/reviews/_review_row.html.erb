@@ -1,0 +1,25 @@
+<div class='row'>
+    <div class='span1'>
+      <div class='submission_vote'><%= render :partial => 'code_submissions/vote_display_review', :locals => { :voteable => review }%></div>
+    </div>
+
+        <div class='span6'>
+          <div class='review-text'><%= review.body %></div>
+          <span class='comment-text'>
+            <div id='comment_form-<%= review.id.to_s %>'> </div>
+            <div id='comments-<%= review.id.to_s %>'>
+              <% review.comments.reverse.each do |comment| %>
+                <p class='comment-copy'>- <%= comment.body %></p>
+              <% end %>
+            </div>
+            <%= link_to 'Submit a comment', new_comment_path(:review => review), :remote => true, class: 'new-comment' %>
+          </span>
+        </div>
+
+        <div class='span3'>
+          <div class='submission_info'><%= render :partial => 'code_submissions/author_display', :locals => { :voteable => review }%></div>
+        </div>
+
+      </div>
+
+    <hr> 

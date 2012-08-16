@@ -1,18 +1,19 @@
-<div class="header_box" style="position:relative" >
-    <div style="vertical-align: middle; padding-right: 400px; float:right"; class="submission_info"><%= render :partial => "author_display", :locals => { :voteable => @code_submission }%></div>
-  <div style="vertical-align: middle" class="submission_vote"><%= render :partial => "vote_display_submission", :locals => { :voteable => @code_submission }%></div>
-  <div style="vertical-align: middle" class="header" ><%= @code_submission.title %></div>
-
-
-</div>   
-
-<div style="height:5px"></div>
+<div class="row">
+  <div class="span1">
+    <div class="submission_vote"><%= render :partial => "vote_display_submission", :locals => { :voteable => @code_submission }%></div>
+  </div>
+  <div class="span11">
+    <div class="header" ><%= @code_submission.title %></div>
+    <div class="submission_info"><%= render :partial => "author_display_inline", :locals => { :voteable => @code_submission }%></div>
+  </div>
+</div>
+<div style="margin-top: 10px" > <%= @code_submission.description %> </div>
 
 <% url = @code_submission.url.split('/') %>
 <% username = url.fourth %>
   <div style="position:relative; height: 450px; vertical-align: top" >
-    <textarea name="description"></textarea>
-    <div id="editor" style="position: absolute; width: 800px; height: 450px;">
+    <textarea name="description" rows="1"></textarea>
+    <div id="editor" class="span12" style="position: absolute; height: 450px; margin-left:0px;">
     </div>
   </div>
   <div style="position:relative; height: 74px; "></div>
@@ -100,20 +101,22 @@
   };
 
 </script>
-<div class="content-container">
   
-<div class = "well" style="width: 600px; height: 140px; ">
+<div class="well span10" style="height: 140px;">
 <%= render "review_form" %>
 </div>
+<div class="span10">
+<div id="review"></div>
 
-<div class="review"></div>
 
+<% @code_submission.reviews.reverse.each do |review| %>
+  <div class="row">
+    <div class="span1">
+      <div class="submission_vote"><%= render :partial => "vote_display_review", :locals => { :voteable => review }%></div>
+    </div>
 
-<% @code_submission.reviews.each do |review| %>
-  <%= render :partial => "author_display", :locals => { :voteable => review } %>
-  <% @current_user = current_user %>
-  <%= render :partial => "vote_display_review", :locals => { :voteable => review }%>
-  <div class="review"><div class="review-text"><%= review.body %></div>
+    <div class="span6">
+      <div class="review-text"><%= review.body %></div>
       <span class="comment-text">
         <div id="comment_form-<%= review.id %>"> </div>
         <div id="comments-<%= review.id %>">
@@ -123,15 +126,20 @@
         </div>
         <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
       </span>
-    <hr>
+    </div>
+    
+    <div class="span3">
+      <div class="submission_info"><%= render :partial => "author_display", :locals => { :voteable => review }%></div>
+    </div>
+
   </div>
 
+<hr>
 <% end %>
 
 </div>
 
 
-
-<div class="footer-spacer">
+<div class="footer-spacer"></div>
 
 
