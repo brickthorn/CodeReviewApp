@@ -24,4 +24,12 @@ module CodeSubmissionsHelper
 
 	code_languages.sort
 	end
+
+	def count_comments(submission)
+		count = 0
+		submission.reviews.each do |review|
+			count += review.comments.length 
+		end
+		count
+	end
 end
