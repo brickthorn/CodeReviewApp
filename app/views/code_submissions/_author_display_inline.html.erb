@@ -1,0 +1,6 @@
+<div class="author-display-inline">
+  <i class="icon-user"></i>
+  		<%= link_to voteable.user.name, user_path(:id => voteable.user_id) %>&nbsp;&nbsp;
+  <i class="icon-calendar"></i>
+	    <%= voteable.created_at.strftime("%b %e, %Y") %>&nbsp;&nbsp;
+</div>

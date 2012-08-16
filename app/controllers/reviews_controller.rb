@@ -12,8 +12,8 @@ class ReviewsController < ApplicationController
                       flash[:success] = "Thanks for your review"  }
         format.js
         # Tell the UserMailer to send a welcome Email after save
-        @user = @review.code_submission.user
-        UserMailer.review_email(@user).deliver
+        #@user = @review.code_submission.user
+        #UserMailer.review_email(@user).deliver
       end
     else
       flash[:error] = "Something went wrong"
