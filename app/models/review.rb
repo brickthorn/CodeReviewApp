@@ -9,4 +9,12 @@ class Review < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   
+  def vote_score
+    @count = 0 
+    self.votes.each do |vote|
+      vote.vote ? @count+=1 : @count+=-1
+    end
+    return @count
+  end
+  
 end

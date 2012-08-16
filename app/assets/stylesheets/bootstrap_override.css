@@ -2,6 +2,10 @@ body {
 	padding-top: 80px;
 }
 
+.hero-unit {
+  padding:20px 60px;
+}
+
 .border-free-table td, th {
 	border: 0 !important;
 }

@@ -109,7 +109,7 @@
 <div id="review"></div>
 
 
-<% @code_submission.reviews.reverse.each do |review| %>
+<% @reviews.each do |review| %>
   <div class="row">
     <div class="span1">
       <div class="submission_vote"><%= render :partial => "vote_display_review", :locals => { :voteable => review }%></div>
@@ -121,7 +121,7 @@
         <div id="comment_form-<%= review.id %>"> </div>
         <div id="comments-<%= review.id %>">
           <% review.comments.reverse.each do |comment| %>
-            <p class="comment-copy">- <%= comment.body %></p>
+            <p class="comment-copy">- <%= comment.body %> - <%= link_to comment.user.name, user_path(comment.user_id) %></p>
           <% end %>
         </div>
         <%= link_to "Submit a comment", new_comment_path(:review => review), :remote => true, class: "new-comment" %>
