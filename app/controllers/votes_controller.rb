@@ -15,19 +15,6 @@ class VotesController < ApplicationController
       format.js
     end
   end
-  
-  
-  
-  # def create
-  #   @voteable = params[:voteable_type]
-  #   @vote = @voteable.votes.new(params[:vote])
-  #   if @vote.save
-  #     respond_to do |format|
-  #         format.js
-  #     end
-  #   else
-  #     flash[:error] = "Something went wrong"
-  #   end
-  # end
+
 
 end

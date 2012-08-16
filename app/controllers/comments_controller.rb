@@ -11,11 +11,8 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(params[:comment])
     if @comment.save
       respond_to do |format|
-
-        
         format.html { redirect_to :back;  flash[:success] = "Thanks for your comment" }
         format.js
-
       end
     else
       flash[:error] = "Something went wrong"
